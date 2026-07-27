@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PixelCraft POS — Demo Sistem Kasir</title>
   <meta name="description" content="Demo interaktif sistem kasir PixelCraft POS"/>
-  <link rel="stylesheet" href="/demo/assets/css/pos.css"/>
+  <link rel="stylesheet" href="assets/css/pos.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 </head>
@@ -66,7 +66,7 @@
 
       <div class="nav-section-title">Akses</div>
 
-      <div class="nav-item" onclick="window.location='/index.html'">
+      <div class="nav-item" onclick="window.location='../index.html'">
         <div class="nav-icon-wrap">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
@@ -509,7 +509,7 @@
   <div class="success-sub">Struk sedang dicetak... Terima kasih!</div>
 </div>
 
-<script src="/demo/assets/js/pos.js"></script>
+<script src="assets/js/pos.js"></script>
 <script>
 function setExact() {
   const sub = state.cart.reduce((s,i)=>s+i.price*i.qty,0);

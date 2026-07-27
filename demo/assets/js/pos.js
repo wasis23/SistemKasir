@@ -1,17 +1,17 @@
 const fmt = n => 'Rp ' + Math.round(n).toLocaleString('id-ID');
 
 const PRODUCTS = [
-  {id:1, name:'Kopi Susu Aren',   cat:'Minuman', price:28000, stock:50, img:'/demo/assets/img/kopi_susu.png'},
+  {id:1, name:'Kopi Susu Aren',   cat:'Minuman', price:28000, stock:50, img:'assets/img/kopi_susu.png'},
   {id:2, name:'Americano',        cat:'Minuman', price:24000, stock:40, img:'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&auto=format&fit=crop'},
   {id:3, name:'Latte',            cat:'Minuman', price:30000, stock:35, img:'https://images.unsplash.com/photo-1534778101976-62847782c213?w=400&auto=format&fit=crop'},
   {id:4, name:'Teh Tarik',        cat:'Minuman', price:22000, stock:45, img:'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=400&auto=format&fit=crop'},
   {id:5, name:'Matcha Latte',     cat:'Minuman', price:32000, stock:30, img:'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=400&auto=format&fit=crop'},
   {id:6, name:'Es Coklat',        cat:'Minuman', price:25000, stock:40, img:'https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=400&auto=format&fit=crop'},
-  {id:7, name:'Classic Beef Burger',cat:'Makanan',price:65000, stock:20, img:'/demo/assets/img/burger.png'},
+  {id:7, name:'Classic Beef Burger',cat:'Makanan',price:65000, stock:20, img:'assets/img/burger.png'},
   {id:8, name:'Chicken Sandwich', cat:'Makanan', price:58000, stock:18, img:'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=400&auto=format&fit=crop'},
   {id:9, name:'Nasi Goreng',      cat:'Makanan', price:45000, stock:25, img:'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&auto=format&fit=crop'},
   {id:10,name:'Mie Goreng',       cat:'Makanan', price:40000, stock:20, img:'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=400&auto=format&fit=crop'},
-  {id:11,name:'French Fries',     cat:'Snack',   price:25000, stock:60, img:'/demo/assets/img/french_fries.png'},
+  {id:11,name:'French Fries',     cat:'Snack',   price:25000, stock:60, img:'assets/img/french_fries.png'},
   {id:12,name:'Croissant',        cat:'Snack',   price:32000, stock:15, img:'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&auto=format&fit=crop'},
   {id:13,name:'Brownies',         cat:'Snack',   price:28000, stock:20, img:'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&auto=format&fit=crop'},
   {id:14,name:'Roti Bakar',       cat:'Snack',   price:22000, stock:25, img:'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?w=400&auto=format&fit=crop'},
@@ -250,7 +250,7 @@ function renderDashboard() {
 
   // 3. Best Sellers Ranking Table
   const bestSellers = [
-    { rank: 1, name: 'Es Kopi Susu', cat: 'Minuman', qty: 58, sales: 1624000, img: '/demo/assets/img/kopi_susu.png' },
+    { rank: 1, name: 'Es Kopi Susu', cat: 'Minuman', qty: 58, sales: 1624000, img: 'assets/img/kopi_susu.png' },
     { rank: 2, name: 'Nasi Goreng Spesial', cat: 'Makanan', qty: 35, sales: 1575000, img: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&auto=format&fit=crop' },
     { rank: 3, name: 'Roti Bakar', cat: 'Snack', qty: 30, sales: 660000, img: 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?w=400&auto=format&fit=crop' },
     { rank: 4, name: 'Ayam Geprek', cat: 'Makanan', qty: 20, sales: 500000, img: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=400&auto=format&fit=crop' },
