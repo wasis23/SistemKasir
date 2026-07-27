@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PixelCraft POS — Sistem Kasir Modern untuk UMKM Indonesia</title>
+  <meta name="description" content="Sistem kasir digital modern untuk UMKM F&B, Retail, dan Usaha Jasa. Berbasis Laravel + Vue 3, multi-payment QRIS, laporan analitik real-time, dan cetak struk thermal."/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">🛒</div>
+    <span class="nav-logo-text">PixelCraft <span>POS</span></span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#fitur">Fitur</a></li>
+    <li><a href="#kasir">Layar Kasir</a></li>
+    <li><a href="#laporan">Laporan</a></li>
+    <li><a href="#pembayaran">Pembayaran</a></li>
+    <li><a href="#teknologi">Teknologi</a></li>
+    <li><a href="demo/index.html" class="nav-cta">Demo Gratis</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="beranda">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✨ Dirancang untuk UMKM Indonesia</div>
+    <h1 class="hero-title">
+      Sistem Kasir yang<br/>
+      <span class="gradient-text">Cerdas, Cepat &amp;</span><br/>
+      Terpercaya
+    </h1>
+    <p class="hero-subtitle">PixelCraft POS hadir dengan antarmuka modern, multi-payment QRIS, laporan analitik real-time, dan cetak struk thermal — semua dalam satu platform terintegrasi.</p>
+    <div class="hero-actions">
+      <a href="demo/index.html" class="btn-primary">🚀 Coba Demo Gratis</a>
+      <a href="#fitur" class="btn-secondary">📋 Lihat Fitur Lengkap</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span data-target="500" data-suffix="+">0+</span></div>
+        <div class="hero-stat-label">UMKM Aktif</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span data-target="99" data-suffix="%">0%</span></div>
+        <div class="hero-stat-label">Uptime Server</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span data-target="3" data-prefix="<" data-suffix="s">&lt;3s</span></div>
+        <div class="hero-stat-label">Kecepatan Transaksi</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span data-target="24" data-suffix="/7">0/7</span></div>
+        <div class="hero-stat-label">Support Teknis</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-img-wrap container">
+    <img src="assets/img/pos_dashboard.png" alt="PixelCraft POS Dashboard — Layar Kasir Modern"/>
+    <div class="hero-img-badge">🟢 Live Demo Tersedia</div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<div class="logos-section">
+  <div class="container">
+    <p class="logos-label">Cocok untuk berbagai jenis usaha</p>
+    <div class="logos-track">
+      <div class="logo-chip"><span class="icon">☕</span> Kafe &amp; Coffee Shop</div>
+      <div class="logo-chip"><span class="icon">🍜</span> Restoran &amp; Warung</div>
+      <div class="logo-chip"><span class="icon">🛍️</span> Retail &amp; Toko</div>
+      <div class="logo-chip"><span class="icon">🧋</span> Minuman Kekinian</div>
+      <div class="logo-chip"><span class="icon">🍱</span> Catering &amp; F&amp;B</div>
+      <div class="logo-chip"><span class="icon">💈</span> Usaha Jasa</div>
+      <div class="logo-chip"><span class="icon">🥐</span> Bakery &amp; Snack</div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features-section" id="fitur">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">📦 Fitur Lengkap</span>
+      <h2 class="section-title">Semua yang Dibutuhkan<br/>Bisnis Anda</h2>
+      <p class="section-desc">Dari transaksi harian hingga laporan bulanan — PixelCraft POS menangani semuanya dengan elegan.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">🛒</div>
+        <h3 class="feature-title">Layar Kasir Split-Screen</h3>
+        <p class="feature-desc">Antarmuka kasir dengan tata letak split-screen intuitif: produk di kiri, keranjang di kanan.</p>
+        <ul class="feature-list">
+          <li>Pencarian instan by nama, SKU, atau Barcode</li>
+          <li>Filter kategori real-time</li>
+          <li>Kartu produk dengan stok real-time</li>
+          <li>Varian produk (Size, Level, Hot/Ice)</li>
+        </ul>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🧾</div>
+        <h3 class="feature-title">Manajemen Keranjang Canggih</h3>
+        <p class="feature-desc">Kelola pesanan dengan mudah, dari tambah item hingga diskon dan catatan khusus.</p>
+        <ul class="feature-list">
+          <li>Tambah/kurang kuantitas cepat (+/-)</li>
+          <li>Catatan item ("Tanpa Bawang")</li>
+          <li>Diskon item &amp; total (nominal/persen)</li>
+          <li>PPN &amp; Service Charge otomatis</li>
+        </ul>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">💳</div>
+        <h3 class="feature-title">Multi-Payment Lengkap</h3>
+        <p class="feature-desc">Terima pembayaran dari berbagai metode tanpa ribet, termasuk QRIS dinamis.</p>
+        <ul class="feature-list">
+          <li>Tunai + kalkulator kembalian otomatis</li>
+          <li>QRIS Dinamis (Midtrans/Xendit)</li>
+          <li>Transfer Bank &amp; Kartu Debit</li>
+          <li>Quick cash button: 10k, 20k, 50k, 100k</li>
+        </ul>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📦</div>
+        <h3 class="feature-title">Manajemen Inventaris</h3>
+        <p class="feature-desc">Pantau stok secara real-time dengan sistem multi-varian dan peringatan stok tipis.</p>
+        <ul class="feature-list">
+          <li>Multi-varian (Warna, Ukuran, Opsi)</li>
+          <li>HPP vs Harga Jual (Margin Profit)</li>
+          <li>Low Stock Alert otomatis</li>
+          <li>Manajemen Supplier &amp; Riwayat Beli</li>
+        </ul>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📊</div>
+        <h3 class="feature-title">Dashboard Analitik Executive</h3>
+        <p class="feature-desc">Visualisasi data penjualan dengan grafik interaktif dan laporan komprehensif.</p>
+        <ul class="feature-list">
+          <li>Total Omzet &amp; Profit Bersih real-time</li>
+          <li>Peak Hours Heatmap</li>
+          <li>Best Seller produk ranking</li>
+          <li>Export Excel &amp; PDF</li>
+        </ul>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🖨️</div>
+        <h3 class="feature-title">Cetak &amp; Struk Digital</h3>
+        <p class="feature-desc">Cetak struk thermal langsung atau kirim struk digital via WhatsApp ke pelanggan.</p>
+        <ul class="feature-list">
+          <li>Auto print thermal 58mm &amp; 80mm</li>
+          <li>Struk digital via WhatsApp API</li>
+          <li>Hold/Save Order (open bill)</li>
+          <li>Bluetooth &amp; USB printer support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE: KASIR -->
+<section class="showcase-section" id="kasir">
+  <div class="container">
+    <div class="showcase-grid">
+      <div class="showcase-img reveal">
+        <img src="assets/img/pos_dashboard.png" alt="Layar Kasir PixelCraft POS"/>
+      </div>
+      <div class="showcase-content reveal">
+        <span class="section-label">🟢 Layar Kasir</span>
+        <h2 class="section-title">Transaksi Secepat Kilat, Semudah Sentuhan</h2>
+        <p class="section-desc">Interface kasir dirancang khusus agar kasir Anda bisa melayani lebih banyak pelanggan tanpa stres, bahkan saat jam ramai.</p>
+        <div class="showcase-features">
+          <div class="showcase-feat">
+            <div class="showcase-feat-icon">⚡</div>
+            <div class="showcase-feat-text">
+              <h4>Respons &lt;1 Detik</h4>
+              <p>Pencarian produk, tambah keranjang, dan kalkulasi harga terjadi secara instan tanpa lag.</p>
+            </div>
+          </div>
+          <div class="showcase-feat">
+            <div class="showcase-feat-icon">📷</div>
+            <div class="showcase-feat-text">
+              <h4>Barcode Scanner Ready</h4>
+              <p>Kompatibel dengan USB Scanner dan Camera Barcode untuk checkout ultra-cepat.</p>
+            </div>
+          </div>
+          <div class="showcase-feat">
+            <div class="showcase-feat-icon">📱</div>
+            <div class="showcase-feat-text">
+              <h4>Tablet &amp; Desktop Friendly</h4>
+              <p>Layout responsif optimal di layar 10" tablet hingga monitor kasir 24".</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE: ANALYTICS -->
+<section class="showcase-section" id="laporan" style="background: var(--slate-800);">
+  <div class="container">
+    <div class="showcase-grid reverse">
+      <div class="showcase-img reveal">
+        <img src="assets/img/pos_analytics.png" alt="Dashboard Analitik PixelCraft POS"/>
+      </div>
+      <div class="showcase-content reveal">
+        <span class="section-label">📊 Laporan &amp; Analitik</span>
+        <h2 class="section-title">Data Bisnis Anda, Selalu di Ujung Jari</h2>
+        <p class="section-desc">Dashboard executive dengan visualisasi data real-time yang membantu Owner &amp; Manager mengambil keputusan bisnis lebih cepat dan tepat.</p>
+        <div class="showcase-features">
+          <div class="showcase-feat">
+            <div class="showcase-feat-icon">💰</div>
+            <div class="showcase-feat-text">
+              <h4>Ringkasan Keuangan Lengkap</h4>
+              <p>Total Omzet, Profit Bersih, Total Transaksi, &amp; Rata-rata Nilai Basket setiap hari.</p>
+            </div>
+          </div>
+          <div class="showcase-feat">
+            <div class="showcase-feat-icon">🔥</div>
+            <div class="showcase-feat-text">
+              <h4>Peak Hours Heatmap</h4>
+              <p>Visualisasi jam-jam tersibuk untuk perencanaan staf dan stok yang lebih efisien.</p>
+            </div>
+          </div>
+          <div class="showcase-feat">
+            <div class="showcase-feat-icon">📁</div>
+            <div class="showcase-feat-text">
+              <h4>Export Excel &amp; PDF</h4>
+              <p>Download laporan harian, mingguan, atau bulanan untuk pembukuan &amp; audit kapan saja.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="payment-section" id="pembayaran">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:1rem;">
+      <span class="section-label">💳 Metode Pembayaran</span>
+      <h2 class="section-title">Terima Semua Cara Bayar</h2>
+      <p class="section-desc" style="margin:0 auto;">Tidak ada pelanggan yang perlu kecewa hanya karena metode bayarnya tidak diterima.</p>
+    </div>
+    <div class="payment-methods">
+      <div class="payment-card reveal">
+        <div class="icon">💵</div>
+        <h4>Tunai (Cash)</h4>
+        <p>Kalkulator kembalian otomatis &amp; quick cash button</p>
+      </div>
+      <div class="payment-card reveal">
+        <div class="icon">📱</div>
+        <h4>QRIS Dinamis</h4>
+        <p>Integrasi Midtrans &amp; Xendit, QR generate otomatis</p>
+      </div>
+      <div class="payment-card reveal">
+        <div class="icon">🏦</div>
+        <h4>Transfer Bank</h4>
+        <p>Konfirmasi manual &amp; otomatis via payment gateway</p>
+      </div>
+      <div class="payment-card reveal">
+        <div class="icon">💳</div>
+        <h4>Kartu Debit/Kredit</h4>
+        <p>EDC machine integration support</p>
+      </div>
+      <div class="payment-card reveal">
+        <div class="icon">🔄</div>
+        <h4>Split Payment</h4>
+        <p>Bayar sebagian tunai, sebagian QRIS sekaligus</p>
+      </div>
+      <div class="payment-card reveal">
+        <div class="icon">🎫</div>
+        <h4>Voucher &amp; Diskon</h4>
+        <p>Kode promo nominal &amp; persentase, per-item atau total</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="roles-section" id="akses">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">👥 Manajemen Akses</span>
+      <h2 class="section-title">Hak Akses Presisi<br/>untuk Setiap Peran</h2>
+      <p class="section-desc">Role-Based Access Control memastikan setiap anggota tim hanya melihat apa yang mereka butuhkan.</p>
+    </div>
+    <div class="roles-grid" style="margin-top:3rem;">
+      <div class="role-card admin reveal">
+        <div class="role-badge">👑 Admin / Owner</div>
+        <h3 class="role-title">Kontrol Penuh</h3>
+        <p class="role-desc">Akses menyeluruh ke seluruh sistem, laporan keuangan, dan konfigurasi bisnis.</p>
+        <ul class="role-perms">
+          <li><span class="check">✓</span> Dashboard &amp; Laporan Lengkap</li>
+          <li><span class="check">✓</span> Lihat HPP &amp; Total Omzet</li>
+          <li><span class="check">✓</span> Manajemen Stok &amp; Produk</li>
+          <li><span class="check">✓</span> Pengaturan Harga &amp; User</li>
+          <li><span class="check">✓</span> Export Data &amp; Audit Log</li>
+        </ul>
+      </div>
+      <div class="role-card cashier reveal">
+        <div class="role-badge">🧑‍💼 Kasir</div>
+        <h3 class="role-title">Akses Terbatas</h3>
+        <p class="role-desc">Fokus pada layar kasir tanpa distraksi data sensitif bisnis.</p>
+        <ul class="role-perms">
+          <li><span class="check">✓</span> Layar Kasir &amp; Transaksi</li>
+          <li><span class="check">✓</span> Hold Order &amp; Open Bill</li>
+          <li><span class="check">✓</span> Cetak Ulang Struk</li>
+          <li><span class="cross">✗</span> Lihat HPP &amp; Total Omzet</li>
+          <li><span class="cross">✗</span> Laporan Keuangan &amp; Stok</li>
+        </ul>
+      </div>
+      <div class="role-card manager reveal">
+        <div class="role-badge">📋 Manajer Toko</div>
+        <h3 class="role-title">Akses Operasional</h3>
+        <p class="role-desc">Kelola stok dan pantau performa harian tanpa akses ke data keuangan sensitif.</p>
+        <ul class="role-perms">
+          <li><span class="check">✓</span> Manajemen Stok &amp; Adjustment</li>
+          <li><span class="check">✓</span> Laporan Harian &amp; Shift</li>
+          <li><span class="check">✓</span> Stock In &amp; Stock Out</li>
+          <li><span class="cross">✗</span> Edit Harga &amp; HPP</li>
+          <li><span class="cross">✗</span> Manajemen User &amp; Pengaturan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="tech-section" id="teknologi">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-label">🛠️ Teknologi</span>
+      <h2 class="section-title">Dibangun dengan Stack Modern &amp; Terpercaya</h2>
+      <p class="section-desc" style="margin:0 auto;">Arsitektur enterprise-grade yang memastikan performa, keamanan, dan skalabilitas jangka panjang.</p>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-card reveal">
+        <div class="icon">⚙️</div>
+        <div class="layer">Backend</div>
+        <h4>Laravel 11</h4>
+        <p>ORM robust, Auth, Authorization, Queue &amp; Reporting engine</p>
+      </div>
+      <div class="tech-card reveal">
+        <div class="icon">🔗</div>
+        <div class="layer">Bridge</div>
+        <h4>Inertia.js</h4>
+        <p>Seamless Laravel ↔ Vue 3 tanpa overhead REST API manual</p>
+      </div>
+      <div class="tech-card reveal">
+        <div class="icon">💚</div>
+        <div class="layer">Frontend</div>
+        <h4>Vue 3 (Composition API)</h4>
+        <p>Reactive UI super cepat untuk kalkulasi real-time</p>
+      </div>
+      <div class="tech-card reveal">
+        <div class="icon">🎨</div>
+        <div class="layer">Styling</div>
+        <h4>Tailwind CSS v3</h4>
+        <p>Clean UI, dark mode support, layout kasir responsif</p>
+      </div>
+      <div class="tech-card reveal">
+        <div class="icon">🗄️</div>
+        <div class="layer">State &amp; Cache</div>
+        <h4>Pinia + IndexedDB</h4>
+        <p>Draft transaksi lokal, offline-ready saat koneksi lambat</p>
+      </div>
+      <div class="tech-card reveal">
+        <div class="icon">🖨️</div>
+        <div class="layer">Print Engine</div>
+        <h4>Web Bluetooth / Serial</h4>
+        <p>Direct thermal printing 58mm &amp; 80mm via BT atau USB</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="kontak">
+  <div class="cta-glow"></div>
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">🚀 Mulai Sekarang</span>
+      <h2 class="section-title">Siap Upgrade Kasir Bisnis Anda?</h2>
+      <p class="section-desc" style="margin:0 auto 1rem; max-width:550px;">Setup cepat &lt;15 menit dengan preset data siap pakai. Tersedia preset Menu Cafe, Toko Kelontong, dan banyak lagi.</p>
+      <div style="display:flex; align-items:center; justify-content:center; gap:1.5rem; flex-wrap:wrap; margin-top:1.5rem;">
+        <div style="text-align:center;">
+          <div style="font-size:1.5rem; font-weight:900; color:var(--white);">Setup &lt;15 Menit</div>
+          <div style="font-size:0.8rem; color:var(--slate-500);">Preset data siap pakai</div>
+        </div>
+        <div style="width:1px; height:40px; background:rgba(255,255,255,0.1);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:1.5rem; font-weight:900; color:var(--white);">PWA Ready</div>
+          <div style="font-size:0.8rem; color:var(--slate-500);">Add to Home Screen tablet</div>
+        </div>
+        <div style="width:1px; height:40px; background:rgba(255,255,255,0.1);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:1.5rem; font-weight:900; color:var(--white);">Support 24/7</div>
+          <div style="font-size:0.8rem; color:var(--slate-500);">Tim teknis siap bantu</div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-actions reveal">
+      <a href="https://wa.me/62859106886664?text=Halo%20PixelCraft%2C%20saya%20tertarik%20dengan%20demo%20POS%20sistem%20kasir" class="btn-wa" id="btn-demo-wa" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.114.553 4.1 1.523 5.824L.057 23.486a.5.5 0 0 0 .613.613l5.701-1.453A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.681-.516-5.21-1.416l-.375-.217-3.884.99.998-3.807-.237-.39A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Chat WhatsApp Sekarang
+      </a>
+      <a href="#fitur" class="btn-secondary">📋 Lihat Semua Fitur</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-icon">🛒</div>
+          <span class="nav-logo-text">PixelCraft <span>POS</span></span>
+        </a>
+        <p>Sistem kasir digital modern yang dirancang khusus untuk UMKM Indonesia. Cepat, andal, dan mudah digunakan.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Fitur</h5>
+        <a href="#kasir">Layar Kasir</a>
+        <a href="#laporan">Laporan Analitik</a>
+        <a href="#pembayaran">Multi-Payment</a>
+        <a href="#akses">Manajemen Akses</a>
+      </div>
+      <div class="footer-col">
+        <h5>Teknologi</h5>
+        <a href="#teknologi">Laravel 11</a>
+        <a href="#teknologi">Vue 3 + Inertia</a>
+        <a href="#teknologi">Tailwind CSS</a>
+        <a href="#teknologi">PWA Ready</a>
+      </div>
+      <div class="footer-col">
+        <h5>Kontak</h5>
+        <a href="https://wa.me/62859106886664" target="_blank">WhatsApp</a>
+        <a href="mailto:hello@pixelcraft.id">Email</a>
+        <a href="#">Instagram</a>
+        <a href="#">Demo Sandbox</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PixelCraft Digital. Dibuat dengan <span class="love">❤️</span> di Indonesia.</p>
+      <p>Laravel 11 · Vue 3 · Inertia.js · Tailwind CSS</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PixelCraft POS — Demo Sistem Kasir</title>
+  <meta name="description" content="Demo interaktif sistem kasir PixelCraft POS"/>
+  <link rel="stylesheet" href="/demo/assets/css/pos.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ====== SIDEBAR ====== -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-logo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+      </div>
+      <div class="sidebar-brand-text">
+        <div class="brand-name">PixelCraft <span>POS</span></div>
+        <div class="brand-badge">PRO V2.4 · DEMO</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">Menu Utama</div>
+      
+      <div class="nav-item active" data-view="pos" onclick="setView('pos')">
+        <div class="nav-icon-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <span class="nav-label">Menu &amp; Kasir</span>
+        <span class="nav-chip live">LIVE</span>
+      </div>
+
+      <div class="nav-item" data-view="dashboard" onclick="setView('dashboard')">
+        <div class="nav-icon-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <span class="nav-label">Dashboard</span>
+        <span class="nav-chip new">NEW</span>
+      </div>
+
+      <div class="nav-section-title">Manajemen &amp; Data</div>
+
+      <div class="nav-item" data-view="laporan" onclick="setView('laporan')">
+        <div class="nav-icon-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <span class="nav-label">Laporan Penjualan</span>
+      </div>
+
+      <div class="nav-item" data-view="inventory" onclick="setView('inventory')">
+        <div class="nav-icon-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <span class="nav-label">Inventaris Stok</span>
+      </div>
+
+      <div class="nav-section-title">Akses</div>
+
+      <div class="nav-item" onclick="window.location='/index.html'">
+        <div class="nav-icon-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <span class="nav-label">Kembali ke Web</span>
+      </div>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar-box">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80" alt="Kasir Avatar"/>
+          <div class="user-status-dot"></div>
+        </div>
+        <div class="user-info">
+          <div class="user-name">Sarah Gelo</div>
+          <div class="user-role">Kasir · Shift Pagi</div>
+        </div>
+        <button class="user-settings-btn" title="Pengaturan Kasir">⚙️</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ====== MAIN ====== -->
+  <div class="main">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="topbar-title">Menu &amp; Kasir — Cafe Demo</div>
+      <div class="topbar-time" id="clock">00:00 WIB</div>
+      <div class="topbar-notif">🔔<div class="notif-dot"></div></div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+      <!-- === POS VIEW === -->
+      <div id="view-pos" class="view-page pos-layout" style="height:100%;overflow:hidden;">
+
+        <!-- Products Panel -->
+        <div class="products-panel">
+          <div class="products-header">
+            <h2>Menu Makanan &amp; Minuman</h2>
+            <div class="search-wrap">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="search-input" class="search-input" placeholder="Cari menu, SKU, atau barcode..."
+                     oninput="state.search=this.value;renderPOS()"/>
+            </div>
+            <div class="cats" id="cat-btns"></div>
+          </div>
+          <div class="products-grid" id="products-grid"></div>
+        </div>
+
+        <!-- Cart Panel -->
+        <div class="cart-panel">
+          <div class="cart-header">
+            <h3>Ringkasan Pesanan</h3>
+            <div class="cart-count" id="cart-count">0</div>
+          </div>
+          <div id="cart-empty" class="cart-empty">
+            <div class="icon">🛒</div>
+            <p>Keranjang masih kosong</p>
+            <p>Klik produk untuk menambahkan</p>
+          </div>
+          <div id="cart-items-list" style="display:none;flex:1;overflow-y:auto;padding:.6rem"></div>
+          <div class="cart-footer">
+            <div class="cart-row">
+              <span class="label">Subtotal</span>
+              <span class="val" id="subtotal">Rp 0</span>
+            </div>
+            <div class="cart-row">
+              <span class="label">Pajak (PPN 10%)</span>
+              <span class="val" id="tax">Rp 0</span>
+            </div>
+            <div class="cart-divider"></div>
+            <div class="cart-total-row">
+              <span class="label">Total</span>
+              <span class="val" id="total">Rp 0</span>
+            </div>
+            <button class="hold-btn">⏸ Tahan Pesanan (Hold)</button>
+            <button class="pay-btn" id="pay-btn" onclick="openPayModal()" disabled>BAYAR</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- === DASHBOARD VIEW === -->
+      <div id="view-dashboard" class="view-page" style="display:none;flex-direction:column;height:100%;overflow-y:auto;">
+        <div class="page-view">
+          
+          <!-- Header & Controls -->
+          <div class="dash-header-wrap">
+            <div>
+              <div class="dash-title-main">Sales Performance Dashboard</div>
+              <div class="dash-sub-main">Current Month: October 2023</div>
+            </div>
+            <div class="dash-controls">
+              <select class="dash-select">
+                <option>📅 Date Range: Oct 2023</option>
+                <option>📅 September 2023</option>
+                <option>📅 August 2023</option>
+              </select>
+              <select class="dash-select">
+                <option>📍 Store Location: All Outlets</option>
+                <option>📍 Jakarta Branch</option>
+                <option>📍 Bandung Branch</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 4 KPI Stat Cards -->
+          <div class="stats-grid-exec">
+            <div class="stat-card-exec featured">
+              <div class="stat-card-top">
+                <div>
+                  <div class="stat-card-title">Total Omzet</div>
+                  <div class="stat-card-sub">Gross Revenue</div>
+                </div>
+                <div class="badge-up">↗ +8.5%</div>
+              </div>
+              <div class="stat-card-val">IDR 2,154,800,000</div>
+              <div style="font-size: 0.7rem; color: #94a3b8; margin-top: 0.8rem;">Target Bulanan: <span style="color:#c084fc; font-weight:700">IDR 2.5 M (86.2%)</span></div>
+            </div>
+
+            <div class="stat-card-exec">
+              <div class="stat-card-top">
+                <div>
+                  <div class="stat-card-title">Profit Bersih</div>
+                  <div class="stat-card-sub">Net Profit</div>
+                </div>
+                <div class="badge-up">↗ +12.1%</div>
+              </div>
+              <div class="stat-card-val">IDR 812,450,000</div>
+              <div style="font-size: 0.7rem; color: #94a3b8; margin-top: 0.8rem;">Margin Profit: <span style="color:#34d399; font-weight:700">37.7%</span></div>
+            </div>
+
+            <div class="stat-card-exec">
+              <div class="stat-card-top">
+                <div>
+                  <div class="stat-card-title">Total Transaksi</div>
+                  <div class="stat-card-sub">Total Transactions</div>
+                </div>
+                <div class="badge-up">↗ +6.2%</div>
+              </div>
+              <div class="stat-card-val">28,450</div>
+              <div style="font-size: 0.7rem; color: #94a3b8; margin-top: 0.8rem;">Rata-rata / Hari: <span style="color:#e2e8f0; font-weight:700">917 TRX</span></div>
+            </div>
+
+            <div class="stat-card-exec">
+              <div class="stat-card-top">
+                <div>
+                  <div class="stat-card-title">Rata-rata Basket</div>
+                  <div class="stat-card-sub">Average Basket</div>
+                </div>
+                <div class="badge-down">↘ -1.3%</div>
+              </div>
+              <div class="stat-card-val">IDR 75,740</div>
+              <div style="font-size: 0.7rem; color: #94a3b8; margin-top: 0.8rem;">Target Min: <span style="color:#e2e8f0; font-weight:700">IDR 70,000</span></div>
+            </div>
+          </div>
+
+          <!-- Middle Section: Revenue Breakdown & Sales Trends Line Chart -->
+          <div class="grid-2col">
+            <!-- Revenue Breakdown Bar Chart -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div>
+                  <div class="dash-card-title">Revenue Breakdown</div>
+                  <div class="dash-card-sub">Omzet Harian (IDR)</div>
+                </div>
+                <select class="dash-select"><option>Oct 1 - Oct 31 v</option></select>
+              </div>
+              <div class="bar-chart-exec" id="exec-bar-chart"></div>
+              <div style="display:flex; justify-content:space-between; margin-top:.4rem; font-size:.65rem; color:#94a3b8; padding:0 .4rem;">
+                <span>Oct 1</span><span>Oct 8</span><span>Oct 15</span><span>Oct 22</span><span>Oct 31</span>
+              </div>
+            </div>
+
+            <!-- Sales Trends & Profit Bulanan -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div>
+                  <div class="dash-card-title">Sales Trends — &amp; Profit Bulanan</div>
+                  <div class="dash-card-sub">Trend Penjualan &amp; Profit Bulanan</div>
+                </div>
+                <div style="display:flex; align-items:center; gap:.8rem;">
+                  <div style="font-size:.68rem; color:#94a3b8; display:flex; gap:.6rem;">
+                    <span style="display:flex; align-items:center; gap:.3rem;"><span style="width:8px;height:8px;border-radius:50%;background:#38bdf8;display:inline-block;"></span> Total Omzet</span>
+                    <span style="display:flex; align-items:center; gap:.3rem;"><span style="width:8px;height:8px;border-radius:50%;background:#c084fc;display:inline-block;"></span> Profit Bersih</span>
+                  </div>
+                  <select class="dash-select"><option>Jan - Oct v</option></select>
+                </div>
+              </div>
+              
+              <div style="position:relative; height:160px; width:100%;">
+                <svg viewBox="0 0 400 140" style="width:100%; height:100%; overflow:visible;">
+                  <line x1="0" y1="20" x2="400" y2="20" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3"/>
+                  <line x1="0" y1="50" x2="400" y2="50" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3"/>
+                  <line x1="0" y1="80" x2="400" y2="80" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3"/>
+                  <line x1="0" y1="110" x2="400" y2="110" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3"/>
+                  
+                  <path class="chart-line-omzet" d="M10,95 Q50,70 90,82 T170,55 T250,40 T330,52 T390,20" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+                  <path class="chart-area-omzet" d="M10,95 Q50,70 90,82 T170,55 T250,40 T330,52 T390,20 L390,130 L10,130 Z" fill="url(#blueGrad)"/>
+                  
+                  <path class="chart-line-profit" d="M10,115 Q50,98 90,105 T170,90 T250,85 T330,95 T390,75" fill="none" stroke="#c084fc" stroke-width="2.5"/>
+                  
+                  <circle class="chart-dot" style="--d:1" cx="10" cy="95" r="3.5" fill="#38bdf8"/>
+                  <circle class="chart-dot" style="--d:2" cx="90" cy="82" r="3.5" fill="#38bdf8"/>
+                  <circle class="chart-dot" style="--d:3" cx="170" cy="55" r="3.5" fill="#38bdf8"/>
+                  <circle class="chart-dot" style="--d:4" cx="250" cy="40" r="3.5" fill="#38bdf8"/>
+                  <circle class="chart-dot" style="--d:5" cx="330" cy="52" r="3.5" fill="#38bdf8"/>
+                  <circle class="chart-dot" style="--d:6" cx="390" cy="20" r="4.5" fill="#38bdf8" stroke="#fff" stroke-width="1.5"/>
+
+                  <circle cx="10" cy="115" r="3" fill="#c084fc"/>
+                  <circle cx="90" cy="105" r="3" fill="#c084fc"/>
+                  <circle cx="170" cy="90" r="3" fill="#c084fc"/>
+                  <circle cx="250" cy="85" r="3" fill="#c084fc"/>
+                  <circle cx="330" cy="95" r="3" fill="#c084fc"/>
+                  <circle cx="390" cy="75" r="3.5" fill="#c084fc" stroke="#fff" stroke-width="1.5"/>
+
+                  <defs>
+                    <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#38bdf8"/>
+                      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-top:.4rem; font-size:.65rem; color:#94a3b8; padding:0 .2rem;">
+                <span>Jan</span><span>Feb</span><span>Mar</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Section: Heatmap & Best Sellers -->
+          <div class="grid-2col">
+            <!-- Heatmap -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div>
+                  <div class="dash-card-title">Heatmap: Jam Sibuk (Peak Hours)</div>
+                  <div class="dash-card-sub">Monday - Sunday, 00:00 - 23:00</div>
+                </div>
+                <select class="dash-select"><option>Monday - Sun v</option></select>
+              </div>
+              <div class="heatmap-wrap">
+                <div class="heatmap-matrix" id="heatmap-matrix"></div>
+                <div class="heatmap-legend-vert">
+                  <span>High</span>
+                  <span>Low</span>
+                </div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:.62rem; color:#94a3b8; margin-top:.4rem; padding-right:18px;">
+                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+              </div>
+            </div>
+
+            <!-- Best Sellers Table -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div>
+                  <div class="dash-card-title">Peringkat Produk (Best Sellers)</div>
+                  <div class="dash-card-sub">Top 5 Penjualan Terbanyak</div>
+                </div>
+                <select class="dash-select"><option>Qty/Sale v</option></select>
+              </div>
+              <table class="rank-table">
+                <thead>
+                  <tr>
+                    <th style="width:30px">Rank</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Sold Qty</th>
+                    <th style="text-align:right">Total Sales</th>
+                  </tr>
+                </thead>
+                <tbody id="best-seller-rows"></tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- === LAPORAN VIEW === -->
+      <div id="view-laporan" class="view-page" style="display:none;flex-direction:column;height:100%;overflow-y:auto;">
+        <div class="page-view">
+          
+          <div class="dash-header-wrap">
+            <div>
+              <div class="dash-title-main">📋 Laporan Transaksi &amp; Penjualan</div>
+              <div class="dash-sub-main">Ringkasan Pemasukan per Metode Pembayaran &amp; Histori Real-time</div>
+            </div>
+            <div class="dash-controls">
+              <button class="dash-select" style="background:#4338ca;color:#fff;border:none">📄 Export Excel</button>
+              <button class="dash-select" style="background:#7c3aed;color:#fff;border:none">📑 Print PDF</button>
+            </div>
+          </div>
+
+          <div class="report-tabs">
+            <button class="r-tab active">Hari Ini</button>
+            <button class="r-tab">Minggu Ini</button>
+            <button class="r-tab">Bulan Ini (Oct 2023)</button>
+          </div>
+
+          <div class="stats-grid-exec">
+            <div class="stat-card-exec">
+              <div class="stat-card-top">
+                <div class="stat-card-title">Metode Tunai</div>
+                <div class="badge-up">45.2%</div>
+              </div>
+              <div class="stat-card-val">IDR 974,000,000</div>
+              <div style="font-size:.68rem;color:#94a3b8;margin-top:.4rem">12,850 Transaksi</div>
+            </div>
+            <div class="stat-card-exec">
+              <div class="stat-card-top">
+                <div class="stat-card-title">Metode QRIS</div>
+                <div class="badge-up">38.5%</div>
+              </div>
+              <div class="stat-card-val">IDR 829,600,000</div>
+              <div style="font-size:.68rem;color:#94a3b8;margin-top:.4rem">10,950 Transaksi</div>
+            </div>
+            <div class="stat-card-exec">
+              <div class="stat-card-top">
+                <div class="stat-card-title">Transfer Bank</div>
+                <div class="badge-up">16.3%</div>
+              </div>
+              <div class="stat-card-val">IDR 351,200,000</div>
+              <div style="font-size:.68rem;color:#94a3b8;margin-top:.4rem">4,650 Transaksi</div>
+            </div>
+            <div class="stat-card-exec featured">
+              <div class="stat-card-top">
+                <div class="stat-card-title">Total Pendapatan</div>
+                <div class="badge-up">↗ +8.5%</div>
+              </div>
+              <div class="stat-card-val">IDR 2,154,800,000</div>
+              <div style="font-size:.68rem;color:#c084fc;margin-top:.4rem">28,450 Transaksi Selesai</div>
+            </div>
+          </div>
+
+          <div class="transactions-list">
+            <div class="tx-header" style="grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr">
+              <span>No. Transaksi</span><span>Waktu</span><span>Metode</span><span>Total</span><span>Status</span>
+            </div>
+            <div id="tx-list"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- === INVENTORY VIEW === -->
+      <div id="view-inventory" class="view-page" style="display:none;flex-direction:column;height:100%;overflow-y:auto;">
+        <div class="page-view">
+          <div class="dash-header-wrap" style="margin-bottom: 1rem;">
+            <div>
+              <div class="dash-title-main">📦 Manajemen Inventaris &amp; Stok Produk</div>
+              <div class="dash-sub-main">Monitoring Stok Real-time &amp; Pembaruan Otomatis</div>
+            </div>
+            <div class="dash-controls">
+              <button class="btn-add-prod">+ Tambah Produk Baru</button>
+            </div>
+          </div>
+          <div class="dash-card" style="padding:0;overflow:hidden">
+            <table class="inv-table">
+              <thead>
+                <tr>
+                  <th>Produk</th>
+                  <th>Kategori</th>
+                  <th>Harga Jual</th>
+                  <th>Stok Tersedia</th>
+                  <th>Status Inventaris</th>
+                </tr>
+              </thead>
+              <tbody id="inv-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<!-- ====== PAYMENT MODAL ====== -->
+<div class="modal-overlay" id="pay-modal">
+  <div class="modal">
+    <div class="modal-title">💳 Proses Pembayaran</div>
+    <div class="payment-tabs">
+      <button class="pay-tab active" data-tab="cash"     onclick="setPayTab('cash')">💵 Tunai</button>
+      <button class="pay-tab"        data-tab="qris"     onclick="setPayTab('qris')">📱 QRIS</button>
+      <button class="pay-tab"        data-tab="transfer" onclick="setPayTab('transfer')">🏦 Transfer</button>
+    </div>
+    <div class="modal-total">
+      <div class="modal-total-label">Total yang Harus Dibayar</div>
+      <div class="modal-total-amount" id="modal-total-amount">Rp 0</div>
+    </div>
+
+    <!-- Tunai -->
+    <div id="cash-section">
+      <div class="cash-label">Uang yang Diterima</div>
+      <div class="quick-cash">
+        <button class="qc-btn" onclick="setQuickCash(10000)">Rp 10k</button>
+        <button class="qc-btn" onclick="setQuickCash(20000)">Rp 20k</button>
+        <button class="qc-btn" onclick="setQuickCash(50000)">Rp 50k</button>
+        <button class="qc-btn" onclick="setQuickCash(100000)">Rp 100k</button>
+        <button class="qc-btn" onclick="setExact()">Uang Pas</button>
+      </div>
+      <input type="text" id="cash-input" class="cash-input" placeholder="Masukkan nominal..."/>
+      <div class="change-row">
+        <span>Kembalian</span>
+        <span id="change-val">Rp 0</span>
+      </div>
+    </div>
+
+    <!-- QRIS -->
+    <div id="qris-section" style="display:none;text-align:center;padding:.75rem 0">
+      <div class="qris-box">📲</div>
+      <div style="font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:.3rem">Scan QRIS untuk Membayar</div>
+      <div class="qris-note">QR code akan expire dalam 5 menit · Midtrans / Xendit</div>
+    </div>
+
+    <!-- Transfer -->
+    <div id="transfer-section" style="display:none;text-align:center;padding:1rem 0">
+      <div style="font-size:3rem;margin-bottom:.75rem">🏦</div>
+      <div style="font-size:.78rem;color:var(--muted);margin-bottom:.4rem">Transfer ke rekening:</div>
+      <div style="font-size:1.1rem;font-weight:700;color:var(--white)">BCA — 1234 5678 90</div>
+      <div style="font-size:.78rem;color:var(--muted);margin-top:.25rem">a.n. PixelCraft Kafe</div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closePayModal()">Batal</button>
+      <button class="btn-confirm" onclick="confirmPayment()">✓ Konfirmasi Bayar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SUCCESS ====== -->
+<div class="success-overlay" id="success-overlay">
+  <div class="success-icon">✅</div>
+  <div class="success-text">Pembayaran Berhasil!</div>
+  <div class="success-sub">Struk sedang dicetak... Terima kasih!</div>
+</div>
+
+<script src="/demo/assets/js/pos.js"></script>
+<script>
+function setExact() {
+  const sub = state.cart.reduce((s,i)=>s+i.price*i.qty,0);
+  setQuickCash(Math.round(sub*1.1));
+}
+</script>
+</body>
+</html>
